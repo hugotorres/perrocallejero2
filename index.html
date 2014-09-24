@@ -28,7 +28,8 @@ function onBackKeyDown()
 
 <div data-role="page" id="inicio" data-theme="b">
 	<div data-role="header" data-position="fixed">
-		<div style="width:50px;float:left;"><a href="#config"><button data-icon="gear">!</button></a></div><h1>Perro callejero</h1>
+		<div style="width:50px;float:left;"><a href="#config"><button data-icon="gear">!</button></a></div>
+		<h1>Perro callejero</h1>
     
 	</div>
 <div class="ui-corner-all " data-content-theme="a">
@@ -36,8 +37,8 @@ function onBackKeyDown()
     <h3 contenteditable="true" align="center" ng-model="perro.nombre"><div style="float:right;">Harry</div> <progress value="{{nivel}}" max="30" style="float:right;"></progress></h3>
   </div>
   <div class="ui-body ui-body-d">
-    <img  onClick="cambiarperro()" class="imageninicio" src="images/perro1.jpg" align="center" draggable="true" width="74" height="74" style="padding:10px;float:left;"/>
-    
+    <img   class="imageninicio" src="images/perro1.jpg" align="center" draggable="true" width="74" height="74" style="padding:10px;float:left;"/>
+    <progress value="{{energia}}" max="100" style="float:right;"></progress> energia
     <div style="padding:10px;font-size:12px;">
     Edad:<progress value="{{perro.edad}}" max="1000"></progress>{{perro.edad}} dias<br>
     
