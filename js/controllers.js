@@ -7,8 +7,7 @@ callejeroApp.controller('controles', function ($scope) {
 	$scope.alerta.diversion=0;
 	$scope.alerta.salud=0;
 	$scope.nivel=1;
-	$scope.energia=100;
-	 $scope.perro = cargar();
+	
  var cargar = function(){
 
 	if(localStorage.getItem('perro'))
@@ -30,12 +29,11 @@ callejeroApp.controller('controles', function ($scope) {
 		localStorage.clear();
 		}
  
- 
+  $scope.perro = cargar();
 
 
 	  $scope.guardar= function(){
 		  $scope.nivel ++;  
-		  
 		  var edad =parseInt($scope.perro.edad);
 		  $scope.perro.edad = edad + 1;
 		  var json = JSON.stringify($scope.perro);
@@ -75,7 +73,7 @@ callejeroApp.controller('controles', function ($scope) {
 	}
   
       $scope.jugar= function(valor){
-	  $scope.energia = $scope.energia - valor;
+	
 	   var valorant =parseInt($scope.perro.diversion);
 	  $scope.perro.diversion = (parseInt(valorant) + parseInt(valor));
 	  
@@ -101,7 +99,6 @@ callejeroApp.controller('controles', function ($scope) {
 	  
 	  
 	   $scope.alimentar= function(comida){
-	   $scope.energia = $scope.energia - comida;
 		  $scope.jugar(-(comida/3));
 
 	   var comidaant =parseInt($scope.perro.comida);
@@ -120,7 +117,6 @@ callejeroApp.controller('controles', function ($scope) {
 	  
 	
 	$scope.salud= function(valor){
-	 $scope.energia = $scope.energia - valor;
 		
 	   var valorant =parseInt($scope.perro.salud);
 	  $scope.perro.salud = (parseInt(valorant) + parseInt(valor));
