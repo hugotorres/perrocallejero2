@@ -85,7 +85,8 @@ color: black;
 font-weight: bold;
 text-shadow: none;
 }
-p{text-align:center;
+p{
+	text-align: center;
 }
 p img{
 	width:80px;}

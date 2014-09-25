@@ -1,28 +1,28 @@
-var callejeroApp = angular.module('callejeroApp', []);
-
-callejeroApp.controller('controles', function ($scope) {
-	
-	$scope.alerta={};
-	$scope.alerta.comida=0;
-	$scope.alerta.diversion=0;
-	$scope.alerta.salud=0;
-	$scope.nivel=1;
-	$scope.energia=100;
-	
- var cargar = function(){
-
-	if(localStorage.getItem('perro'))
-	return JSON.parse(localStorage.getItem('perro'));
-	else  return {
-	 'name': 'Harry',
-     'edad': 60 ,
-	 'salud':40,
-	 'hogar':40,
-	 'diversion':40,
-	 'comida':40	 
-	 };
-	}
-	
+  var callejeroApp = angular.module('callejeroApp', []);
+  
+  callejeroApp.controller('controles', function ($scope) {
+	  
+	  $scope.alerta={};
+	  $scope.alerta.comida=0;
+	  $scope.alerta.diversion=0;
+	  $scope.alerta.salud=0;
+	  $scope.nivel=1;
+	  $scope.energia=100;
+	  
+   var cargar = function(){
+  
+	  if(localStorage.getItem('perro'))
+	  return JSON.parse(localStorage.getItem('perro'));
+	  else  return {
+	   'name': 'Harry',
+	   'edad': 60 ,
+	   'salud':40,
+	   'amor ':40,
+	   'diversion':40,
+	   'comida':40	 
+	   };
+	  }
+	  
 	
 	$scope.borrar=function(){
 		alert('se borraran todos los datos y esto no se puede deshacer');
@@ -36,7 +36,6 @@ callejeroApp.controller('controles', function ($scope) {
 	  $scope.guardar= function(){
 		  $scope.nivel ++;  
 		  var edad =parseInt($scope.perro.edad);
-		  $scope.perro.edad = edad + 1;
 		  var json = JSON.stringify($scope.perro);
  		localStorage.setItem('perro',json);		
 		cargar();
@@ -65,13 +64,14 @@ callejeroApp.controller('controles', function ($scope) {
 	 
 	
 
-	 $scope.hogar= function(valor){
+	 $scope.amor= function(valor){
 	 $scope.energia = $scope.energia-valor;
-	   var valorant =parseInt($scope.perro.hogar);
-	  $scope.perro.hogar = (parseInt(valorant) + parseInt(valor));
-	  if($scope.perro.hogar >100)
-	  $scope.perro.hogar =100;
+	   var valorant =parseInt($scope.perro.amor);
+	  $scope.perro.amor = (parseInt(valorant) + parseInt(valor));
+	  if($scope.perro.amor >100)
+	  $scope.perro.amor =100;
 	  comida(valor/2);
+	  $scope.jugar(3);
 	}
   
       $scope.jugar= function(valor){

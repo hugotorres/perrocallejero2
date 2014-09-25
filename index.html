@@ -28,7 +28,7 @@ function onBackKeyDown()
 
 <div data-role="page" id="inicio" data-theme="b">
 	<div data-role="header" data-position="fixed">
-		<div style="width:50px;float:left;"><a href="#config"><button data-icon="gear">!</button></a></div>
+		<div style="width:50px;float:left;"><a href="#config" data-transition="slidedown"><button data-icon="gear">!</button></a></div>
 		<h1>Perro callejero</h1>
     
 	</div>
@@ -38,8 +38,9 @@ function onBackKeyDown()
   </div>
   <div class="ui-body ui-body-d">
     <img   class="imageninicio" src="images/perro1.jpg" align="center" draggable="true" width="74" height="74" style="padding:10px;float:left;"/>
-    <progress value="{{energia}}" max="100" style="float:right;"></progress> energia
-    <div style="padding:10px;font-size:12px;">
+    
+    <div style="padding:5px;font-size:14px;">
+    energia<progress value="{{energia}}" max="100" style=""></progress> <br>
     Edad:<progress value="{{perro.edad}}" max="1000"></progress>{{perro.edad}} dias<br>
     
     Comida:<progress value="{{perro.comida}}" max="100"></progress>{{perro.comida}}%
@@ -64,7 +65,10 @@ function onBackKeyDown()
   diversion</a></p>
     </div>
 	<div class="ui-block-b">
-     <p> <a href="#salud" data-transition="flip"  data-role="button"><img src="images/Animals-Dog-Leash-icon.png"><br>salud</a> </p>
+     <p> <a href="#salud" data-transition="flip"  data-role="button"><img src="images/redcross.png"><br>salud</a> </p>
+     <p>
+     <a href="#carino" data-transition="flip" data-role="button"><img src="images/corazon.png"><br>
+  Amor</a></p>
   
     </div>
 </div><!-- /grid-a -->
@@ -86,11 +90,13 @@ function onBackKeyDown()
 	<div class="ui-block-a">
      <p text-align="center">
      <img src="images/Animals-Dog-Bowl-icon.png" width="64"/><br> <progress value="{{perro.comida}}" max="100"></progress>{{perro.comida}} </p>
-  <p> <img src="images/Animals-Dog-House-icon.png" width="64"/><br><progress value="{{perro.hogar}}" max="100"></progress>{{perro.hogar}}</p>
+  <p> <img src="images/corazon.png" width="128"/><br><progress value="{{perro.amor}}" max="100"></progress>
+    {{perro.amor}}</p>
     </div>
 	<div class="ui-block-b">
-     <p> <img src="images/Animals-Dog-Leash-icon.png" width="64"/><br><progress value="{{perro.salud}}" max="100"></progress>{{perro.salud}}</p>
-  <p> <img src="images/pelota.png" width="64"/><br><progress value="{{perro.diversion}}" max="100"></progress>{{perro.diversion}}
+     <p><img src="images/redcross.png" alt="health"><br><progress value="{{perro.salud}}" max="100"></progress>{{perro.salud}}</p>
+  <p><img src="images/ball2.png" alt="love"><br><progress value="{{perro.diversion}}" max="100"></progress>
+    {{perro.diversion}}
    </p>
     </div>
 </div><!-- /grid-a -->
@@ -99,16 +105,15 @@ function onBackKeyDown()
 <div class="ui-grid-a">
   <div class="ui-block-a">
   <button  data-theme="a" ng-click="alimentar(5)">Concentrado  x5</button>
-    <button  data-theme="a" ng-click="alimentar(10)">Concentrado  x10</button>
-      <button  data-theme="a" ng-click="alimentar(15)">Concentrado x15</button>
+    <button  data-theme="a" ng-click="alimentar(10)">Sopa</button>
+      
    </div>
   <div class="ui-block-b">
  <button  data-theme="a" ng-click="alimentar(3)">
- Pan  x3</button>
+ Pan  </button>
   <button  data-theme="a" ng-click="alimentar(5)">
-  Pan x5</button>
-<button  data-theme="a" ng-click="alimentar(10)">
-Pan x10</button>
+  Sobras</button>
+
  
    </div>
 </div><!-- /grid-a -->
@@ -134,11 +139,13 @@ Pan x10</button>
 	<div class="ui-block-a">
      <p text-align="center">
      <img src="images/Animals-Dog-Bowl-icon.png" width="64"/><br><progress value="{{perro.comida}}" max="100"></progress> {{perro.comida}} </p>
-  <p> <img src="images/Animals-Dog-House-icon.png" width="64"/><br><progress value="{{perro.hogar}}" max="100"></progress>{{perro.hogar}}</p>
+  <p> <img src="images/corazon.png" width="128"/><br><progress value="{{perro.amor}}" max="100"></progress>
+    {{perro.amor}}</p>
     </div>
 	<div class="ui-block-b">
-     <p> <img src="images/Animals-Dog-Leash-icon.png" width="64"/><br><progress value="{{perro.salud}}" max="100"></progress>{{perro.salud}}</p>
-  <p> <img src="images/pelota.png" width="64"/><br><progress value="{{perro.diversion}}" max="100"></progress>{{perro.diversion}}
+     <p> <img src="images/redcross.png" width="128"/><br><progress value="{{perro.salud}}" max="100"></progress>{{perro.salud}}</p>
+  <p> <img src="images/ball2.png" width="128"/><br><progress value="{{perro.diversion}}" max="100"></progress>
+  {{perro.diversion}}
    </p>
     </div>
 </div><!-- /grid-a -->
@@ -146,10 +153,12 @@ Pan x10</button>
 		<div class="ui-grid-a">
   <div class="ui-block-a">
   <button type="submit" data-theme="a" ng-click="jugar(10)">Pelota</button>
+    <button type="submit" data-theme="a" ng-click="jugar(15)">Parque</button>
    </div>
    
   <div class="ui-block-b">
  <button type="submit" data-theme="a" ng-click="jugar(20)" >Correr</button>
+  <button type="submit" data-theme="a" ng-click="jugar(25)" >Bicicleta</button>
    </div>
 </div><!-- /grid-a -->
       
@@ -172,11 +181,12 @@ Volver</a></h4>
 	<div class="ui-block-a" style="text-align:center;">
      <p text-align="center">
      <img src="images/Animals-Dog-Bowl-icon.png" width="64"/><br><progress value="{{perro.comida}}" max="100"></progress> {{perro.comida}} </p>
-  <p> <img src="images/Animals-Dog-House-icon.png" width="64"/><br><progress value="{{perro.hogar}}" max="100"></progress>{{perro.hogar}}</p>
+  <p> <img src="images/corazon.png" width="128"/><br><progress value="{{perro.amor}}" max="100"></progress>
+    {{perro.amor}}</p>
     </div>
 	<div class="ui-block-b" style="text-align:center;">
-     <p> <img src="images/Animals-Dog-Leash-icon.png" width="64"/><br><progress value="{{perro.salud}}" max="100"></progress>{{perro.salud}}</p>
-  <p> <img src="images/pelota.png" width="64"/><br><progress value="{{perro.diversion}}" max="100"></progress>{{perro.diversion}}
+     <p> <img src="images/redcross.png" width="128"/><br><progress value="{{perro.salud}}" max="100"></progress>{{perro.salud}}</p>
+  <p> <img src="images/ball2.png" width="128"/><br><progress value="{{perro.diversion}}" max="100"></progress>{{perro.diversion}}
    </p>
     </div>
 </div><!-- /grid-a -->
@@ -201,7 +211,7 @@ Volver</a></h4>
 
 <div data-role="page"data-theme="b" data-add-back-btn="true" id="config">
 <div data-role="header">
-		<h1>Configuración</h1>
+		<h1>ConfiguraciÃ²n</h1>
 	</div>
 <div data-role="collapsible">
    <h3>Juego</h3>
