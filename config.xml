@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+
+<name>Perro callejero</name>
+<icon src="images/darmano.jpg"/>
+<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="mdpi"/>
+<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="hdpi"/>
+<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="xhdpi"/>
+<description>
+simulador de la vida de un perro adoptado de la calle en bogota colombia.
+</description>
+
+<author href="https://www.webuildsoft.com" email="info@webuildsoft.com">
+hugo andres torres
+</author>
+
+</widget>
