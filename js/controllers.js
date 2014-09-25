@@ -17,7 +17,7 @@
 	   'name': 'Harry',
 	   'edad': 60 ,
 	   'salud':40,
-	   'amor ':40,
+	   'amor':40,
 	   'diversion':40,
 	   'comida':40	 
 	   };
