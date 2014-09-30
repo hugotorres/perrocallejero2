@@ -6,8 +6,9 @@
 	  $scope.alerta.comida=0;
 	  $scope.alerta.diversion=0;
 	  $scope.alerta.salud=0;
-	  $scope.nivel=1;
-	  $scope.energia=100;
+	  $scope.jugador={};
+	  $scope.jugador.nivel=1;
+	  $scope.jugador.energia=100;
 	  
    var cargar = function(){
   
@@ -35,6 +36,7 @@
 
 	  $scope.guardar= function(){
 		  $scope.nivel ++;  
+		  $scope.energia --;
 		  var edad =parseInt($scope.perro.edad);
 		  var json = JSON.stringify($scope.perro);
  		localStorage.setItem('perro',json);		
@@ -62,20 +64,19 @@
 	   
 	  }
 	 
-	
-
-	 $scope.amor= function(valor){
-	 $scope.energia = $scope.energia-valor;
-	   var valorant =parseInt($scope.perro.amor);
-	  $scope.perro.amor = (parseInt(valorant) + parseInt(valor));
-	  if($scope.perro.amor >100)
-	  $scope.perro.amor =100;
-	  comida(valor/2);
-	  $scope.jugar(3);
-	}
   
       $scope.jugar= function(valor){
-	 $scope.energia = $scope.energia-valor;
+	$("#stopwatch").TimeCircles(
+			{   start: false,
+				time: {
+				Days: { show: false},
+				Hours: { show: false},
+				Minutes: { show: false },
+				Seconds: { color: "#C0C8CF" }
+				}
+			}
+		).start();
+	
 	   var valorant =parseInt($scope.perro.diversion);
 	  $scope.perro.diversion = (parseInt(valorant) + parseInt(valor));
 	  
@@ -88,30 +89,28 @@
 	  
    var cansar =  function(valor){
 	  var comida = parseInt( $scope.perro.comida );
-	  $scope.perro.comida = comida -valor;
-	  
-	  
+	  $scope.perro.comida = comida -valor;	  
    }
    
-   var aburrir = function(valor){
-	     var diversion = parseInt( $scope.perro.diversion );
+      var aburrir = function(valor){
+	   var diversion = parseInt( $scope.perro.diversion );
 	  $scope.perro.diversion = (diversion -valor);
 	   }
 
 	  
 	  
 	   $scope.alimentar= function(comida){
-		  $scope.jugar(-(comida/3));
-		   $scope.energia = $scope.energia-comida;
+		   console.log('alimentando');
+	  //$scope.jugar(-(comida/3));
 
 	   var comidaant =parseInt($scope.perro.comida);
 	  $scope.perro.comida = (parseInt(comidaant) + parseInt(comida));
 	  
 	  if($scope.perro.comida >100)
 	  $scope.perro.comida =100;
+	  
 	  aburrir(comida/3);
-	  
-	  
+  
 	  $scope.guardar();
 	  
 

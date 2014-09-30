@@ -60,22 +60,30 @@ progress::-webkit-progress-bar {
 /* IE10 */
 progress {
     color: green;
+	width:90px;
 }
 
 /* Firefox */
 progress::-moz-progress-bar { 
     background: green;	
+	width:90px;
 }
 
 /* Chrome */
 progress::-webkit-progress-value {
     background: green;
+	width:90px;
 }
 
 /* Polyfill */
 progress[aria-valuenow]:before  {
     background: green;
+	width:90px;
 }
+#stopwatch{
+	max-width:100px;
+	text-align:center;
+	}
 
 
 .alert {
@@ -86,7 +94,8 @@ font-weight: bold;
 text-shadow: none;
 }
 p{
-	text-align: center;
+	text-align: justify;
+
 }
 p img{
 	width:80px;}
