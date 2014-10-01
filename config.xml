@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "com.phonegap.example"
-    version   = "1.0.0">
+    id        = "com.webuildsoft.perrocallejero"
+    version   = "1.2.0">
 
 <name>Perro callejero</name>
 <icon src="images/darmano.jpg"/>
@@ -10,12 +10,14 @@
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="mdpi"/>
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="hdpi"/>
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="xhdpi"/>
+<gap:plugin name="de.appplant.cordova.plugin.local-notification"  />
 <description>
-simulador de la vida de un perro adoptado de la calle en bogota colombia.
+simulador de la vida de un perro adoptado de la calle.
 </description>
 
 <author href="https://www.webuildsoft.com" email="info@webuildsoft.com">
 hugo andres torres
 </author>
+<preference name="permissions" value="none"/>
 
 </widget>
