@@ -1,148 +1,126 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Perro callejero</title>
-<link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
-<link href="jquery-mobile/jqueryflattheme.css" rel="stylesheet" type="text/css"/>
-<link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-<link href="js/TimeCircles.css" rel="stylesheet" type="text/css"/>
-
-<link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
-<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
-<script src="js/TimeCircles.js" type="text/javascript"></script>
-<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
-
-<script src="js/angular.min.js" type="text/javascript">
-</script>
-<script src="js/controllers.js"></script>
-</head> 
-<script>
-function onDeviceReady() {
-    document.addEventListener("backbutton", onBackKeyDown, false);
-}
-function onBackKeyDown() 
-{
- navigator.app.exitApp();
-}
-</script>
-<body  ng-app="callejeroApp" ng-controller="controles"  data-theme="b" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif;"> 
-
+    <head>
+    <meta charset="utf-8">
+    <title>Perro callejero</title>
+    <link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+    <link href="jquery-mobile/jqueryflattheme.css" rel="stylesheet" type="text/css"/>
+    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript">
+    </script>
+    <script src="js/jquery.countdown360.min.js" type="text/javascript">
+    </script>
+    <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript">
+    </script>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/controllers.js">
+    </script>
+    </head>
+    <script>
+    function onDeviceReady() {
+      document.addEventListener("backbutton", onBackKeyDown, false);
+    }
+    function onBackKeyDown() 
+    {
+      navigator.app.exitApp();
+    }
+  </script>
+    <body  ng-app="callejeroApp" ng-controller="controles"  data-theme="b" style="font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
 <div data-role="page" id="inicio" data-theme="b">
-	<div data-role="header" data-position="fixed">
-		<div style="width:50px;float:left;"><a href="#config" data-transition="slidedown"><button data-icon="gear">!</button></a></div>
-		<h1>Perro callejero</h1>
-    
-	</div>
-<div class="ui-corner-none" data-content-theme="a">
-  <div class="ui-bar ui-bar-b">
-    <h3 contenteditable="true" align="center" ng-model="perro.nombre"><div style="float:right;">Harry</div> </h3>
+      <div data-role="header" data-position="fixed">
+    <div style="width:50px;float:left;"> <a href="#config" data-transition="slidedown">
+      <button data-icon="gear"> ! </button>
+      </a> </div>
+    <h4> Perro callejero </h4>
   </div>
-  <div class="ui-body ui-body-d">
-    <div class="ui-grid-a">
-      <div class="ui-block-a">
-      <img   class="imageninicio" src="images/perro1.jpg" align="center"  style="padding:2px;max-width:100px;"/>
-      
-      <div id="stopwatch" data-timer="10" ></div>
-      
+      <div class="ui-corner-none" data-content-theme="a">
+    <div class="ui-bar ui-bar-b">
+          <h3 contenteditable="true" align="center" ng-model="perro.nombre">
+        <div style="float:right;"> Harry </div>
+      </h3>
+        </div>
+    <div class="ui-body ui-body-d">
+          <div class="ui-grid-a">
+        <div class="ui-block-a"> <img   class="imageninicio" src="images/perro1.jpg" align="center"  style="padding:2px;max-width:100px;"/> <br>
+              energia
+              <progress value="{{jugador.energia}}" max="100" style=""> </progress>
+              {{jugador.energia}} <br>
+              Edad:
+              <progress value="{{perro.edad}}" max="1000"> </progress>
+              {{perro.edad}} dias
+              <div id="countdown"> </div>
+            </div>
+        <div class="ui-block-b">
+              <div style="padding:1px;font-size:14px;">
+            <p> <br>
+                  Comida:
+                  <progress value="{{perro.comida}}" max="100"> </progress>
+                  {{perro.comida | number:1}}% <br>
+                  Diversion:
+                  <progress value="{{perro.diversion}}" max="100"> </progress>
+                  {{perro.diversion | number:1}}% <br>
+                  Salud:
+                  <progress value="{{perro.salud}}" max="100"> </progress>
+                  {{perro.salud | number:1}}% </p>
+          </div>
+            </div>
       </div>
-      <div class="ui-block-b"> <div style="padding:1px;font-size:14px;">
-      <p>energia
-        <progress value="{{jugador.energia}}" max="100" style=""></progress>
-        {{jugador.energia}}<br>
-        Edad:
-  <progress value="{{perro.edad}}" max="1000"></progress>
-        {{perro.edad}} dias<br>
-        Comida:
-      <progress value="{{perro.comida}}" max="100"></progress>
-{{perro.comida}}% <br>
-Diversion:
-<progress value="{{perro.diversion}}" max="100"></progress>
-{{perro.diversion}}% <br>
-Salud:
-<progress value="{{perro.salud}}" max="100"></progress>
-{{perro.salud}}%
-</p>
-   
-        </div></div>
-        
-        
-    </div>
-    <div class="alert" ng-if="alerta.comida">tu perro tiene hambre</div>
-     <div class="alert" ng-if="alerta.diversion">tu perro esta aburrido</div>
-      <div class="alert" ng-if="alerta.salud">tu perro esta enfermo</div>
-
-  
-    
-    
-   
+          <div class="alert" ng-if="alerta.comida"> tu perro tiene hambre </div>
+          <div class="alert" ng-if="alerta.diversion"> tu perro esta aburrido </div>
+          <div class="alert" ng-if="alerta.salud"> tu perro esta enfermo </div>
+        </div>
   </div>
-</div>
-  
-    
-    <div style="clear:left;"></div>
-	<div data-role="content" style="font-size:12px;">
-  	                    
-  	           <div data-role="collapsible-set">
-  	             <div data-role="collapsible">
-  	               <h3>Comida</h3>
-  	               
-  	               
-  	                <button  data-theme="a" ng-click="alimentar(5)">Concentrado</button>
-  
-  	                 <button  data-theme="a" ng-click="alimentar(10)">Sopa</button>
-  	            <button  data-theme="b" ng-click="alimentar(3)">
- Pan  </button>
-  
-  	                 <button  data-theme="b" ng-click="alimentar(5)">
-  Sobras</button>
-  	              
-                 </div>
-  	             <div data-role="collapsible" data-collapsed="true">
-  	               <h3>Diversion</h3>
-  	                <button type="submit" data-theme="a" ng-click="jugar(20)" >Correr</button>
-  <button type="submit" data-theme="a" ng-click="jugar(25)" >Bicicleta</button>
-    <button type="submit" data-theme="a" ng-click="jugar(10)">Pelota</button>
-    <button type="submit" data-theme="a" ng-click="jugar(15)">Parque</button>
-                 </div>
-  	             <div data-role="collapsible" data-collapsed="true">
-  	               <h3>Salud</h3>
-  	      		<div class="ui-grid-a">
-  <div class="ui-block-a">
-  <button type="submit" data-theme="c" ng-click="salud(10)">antibiotico</button>
-   </div>
-  <div class="ui-block-b">
- <button type="submit" data-theme="c" ng-click="salud(20)">veterinario</button>
-   </div>
-</div><!-- /grid-a -->
-                 </div>
-               </div>
-  	         </div>
-    
-
-</div>
-
+      <div style="clear:left;"> </div>
+      <div data-role="content" style="font-size:12px;">
+    <div data-role="collapsible-set">
+          <div data-role="collapsible">
+        <h3> Comida </h3>
+        <button  data-theme="a" ng-click="contar(5,'comida',5)"> Concentrado </button>
+        <button  data-theme="a" ng-click="contar(3,'comida',6)"> Sopa </button>
+        <button  data-theme="b" ng-click="contar(1,'comida',2)"> Pan </button>
+        <button  data-theme="b" ng-click="contar(4,'comida',4)"> Sobras </button>
+      </div>
+          <div data-role="collapsible" data-collapsed="true">
+        <h3> Diversion </h3>
+        <button type="submit" data-theme="a" ng-click="contar(8,'jugar',5)" > Correr </button>
+        <button type="submit" data-theme="a" ng-click="contar(4,'jugar',10)" > Bicicleta </button>
+        <button type="submit" data-theme="a" ng-click="contar(3,'jugar',7)"> Pelota </button>
+        <button type="submit" data-theme="a" ng-click="contar(5,'jugar',12)"> Parque </button>
+      </div>
+          <div data-role="collapsible" data-collapsed="true">
+        <h3> Salud </h3>
+        <div class="ui-grid-a">
+              <div class="ui-block-a">
+            <button type="submit" data-theme="c" ng-click="contar(10,'salud',6)"> antibiotico </button>
+          </div>
+              <div class="ui-block-b">
+            <button type="submit" data-theme="c" ng-click="contar(15,'salud',20)"> veterinario </button>
+          </div>
+            </div>
+        <!-- /grid-a --> 
+      </div>
+        </div>
+  </div>
+    </div>
 <div data-role="page"data-theme="b" data-add-back-btn="true" id="config">
-<div data-role="header">
-		<h1>Configuraciòn</h1>
-	</div>
-<div data-role="collapsible">
-   <h3>Juego</h3>
-   <button ng-click="borrar()" data-icon="delete">Empezar de nuevo</button>
-   <button>Contacto </button>
-  <span style="text-align: justify"></span>  <span style="text-align: center"></span><span style="text-align: left"></span><span style="text-align: right"></span><span style="text-align: justify"></span></div>
-
-<div data-role="collapsible">
-   <h3><span class="ui-btn-icon-notext ui-icon-alert"></span>acerca   </h3>
-   <p>la intencion de este juego es concientizar a las personas sobre los cuidados qeu requeire tener un perro. y para incentivar l aadopcion en vez de la compra de mascotas.</p>
-   <p>&nbsp;</p>
-   <p>Webuildsoft</p>
-</div>
-<a href="#inicio">
-<button  data-icon="arrow-l">volver</button></a>
-</div>
-
-
+      <div data-role="header">
+    <h1> Configuraciòn </h1>
+  </div>
+      <div data-role="collapsible">
+    <h3> Juego </h3>
+    <button ng-click="borrar()" data-icon="delete"> Empezar de nuevo </button>
+    <button> Contacto </button>
+    <span style="text-align: justify"> </span> <span style="text-align: center"> </span> <span style="text-align: left"> </span> <span style="text-align: right"> </span> <span style="text-align: justify"> </span> </div>
+      <div data-role="collapsible">
+    <h3> <span class="ui-btn-icon-notext ui-icon-alert"> </span> acerca </h3>
+    <p> la intencion de este juego es concientizar a las personas sobre los cuidados qeu requeire tener un perro. y para incentivar l aadopcion en vez de la compra de mascotas. </p>
+    <p>&nbsp; </p>
+    <p> Webuildsoft </p>
+  </div>
+      <a href="#inicio">
+  <button  data-icon="arrow-l"> volver </button>
+  </a> </div>
 </body>
 </html>

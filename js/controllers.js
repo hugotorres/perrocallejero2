@@ -9,12 +9,15 @@
 	  $scope.jugador={};
 	  $scope.jugador.nivel=1;
 	  $scope.jugador.energia=100;
+	  $scope.accion= null;
+	  $scope.valor=null;
 	  
    var cargar = function(){
   
-	  if(localStorage.getItem('perro'))
+	 if(localStorage.getItem('perro'))
 	  return JSON.parse(localStorage.getItem('perro'));
-	  else  return {
+	  else
+	    return {
 	   'name': 'Harry',
 	   'edad': 60 ,
 	   'salud':40,
@@ -28,17 +31,27 @@
 	$scope.borrar=function(){
 		alert('se borraran todos los datos y esto no se puede deshacer');
 		localStorage.removeItem("perro");
-		localStorage.clear();
+		localStorage.removeItem("jugador");
+	
 		}
  
   $scope.perro = cargar();
+  		var envejecer = function(dias){
+			$scope.perro.edad+=dias;
+			
+			}
 
 
 	  $scope.guardar= function(){
-		  $scope.nivel ++;  
-		  $scope.energia --;
+		  
+		  $scope.jugador.nivel ++;  
+		  $scope.jugador.energia --;
 		  var edad =parseInt($scope.perro.edad);
+		  var time =new Date();
+		  $scope.perro.ultimo = time;
+		  var jsonjugador = JSON.stringify($scope.jugador);
 		  var json = JSON.stringify($scope.perro);
+		localStorage.setItem('jugador',jsonjugador)
  		localStorage.setItem('perro',json);		
 		cargar();
 		if($scope.perro.diversion <0)
@@ -63,71 +76,84 @@
 			$scope.alerta.comida=false;
 	   
 	  }
+
+			  
+	  $scope.contar = function(tiempo,accion, valor){
+		$scope.accion = accion;
+		
+		$scope.valor= valor;
+		$("#countdown").fadeIn('slow');
+		  $("#countdown").countdown360({
+		radius      : 25,
+		seconds     : tiempo,
+		fontColor   : '#FFFFFF',
+		autostart   : false,
+		onComplete  :function(){
+			$("#countdown").fadeOut();
+			if($scope.accion=='comida')
+			$scope.alimentar($scope.valor);
+			if($scope.accion=='jugar')
+			$scope.jugar($scope.valor);
+			if($scope.accion=='salud')
+			$scope.salud($scope.valor);
+			
+			$scope.$apply();
+			
+			}
+		}).start()
+		
+		}
+		  
+		 
 	 
   
       $scope.jugar= function(valor){
-	$("#stopwatch").TimeCircles(
-			{   start: false,
-				time: {
-				Days: { show: false},
-				Hours: { show: false},
-				Minutes: { show: false },
-				Seconds: { color: "#C0C8CF" }
-				}
-			}
-		).start();
-	
-	   var valorant =parseInt($scope.perro.diversion);
-	  $scope.perro.diversion = (parseInt(valorant) + parseInt(valor));
-	  
-	  if($scope.perro.diversion >100)
-	  $scope.perro.diversion =100;
-	  
-	      cansar((valor/3));
-          $scope.guardar();
+		  $scope.jugador.energia -=(valor);
+		  $scope.perro.diversion+=valor;
+		  
+		  if($scope.perro.diversion >100)
+		  $scope.perro.diversion =100;
+		  
+		  $scope.perro.salud-=(valor/2);
+		  $scope.perro.comida-=(valor/2);
+		  $scope.guardar();
+		 
 	  }
 	  
-   var cansar =  function(valor){
-	  var comida = parseInt( $scope.perro.comida );
-	  $scope.perro.comida = comida -valor;	  
-   }
-   
-      var aburrir = function(valor){
-	   var diversion = parseInt( $scope.perro.diversion );
-	  $scope.perro.diversion = (diversion -valor);
-	   }
 
-	  
-	  
 	   $scope.alimentar= function(comida){
-		   console.log('alimentando');
-	  //$scope.jugar(-(comida/3));
 
-	   var comidaant =parseInt($scope.perro.comida);
+	  $scope.jugador.energia -=(comida);
+
+	  /* var comidaant =parseInt($scope.perro.comida);
 	  $scope.perro.comida = (parseInt(comidaant) + parseInt(comida));
+	  */
+	  $scope.perro.comida+=comida;
 	  
-	  if($scope.perro.comida >100)
-	  $scope.perro.comida =100;
-	  
-	  aburrir(comida/3);
-  
+	  if($scope.perro.comida >100){
+		  $scope.perro.comida =100;
+		  $scope.perro.salud-=(comida*0.4).toFixed(2);
+		  }
+		  $scope.perro.diversion-=(comida*0.4).toFixed(2);
+	  // asumimos que al cmoer el perro se aburre
 	  $scope.guardar();
-	  
-
 	  }
 	  
 	  
 	
 	$scope.salud= function(valor){
-		$scope.energia = $scope.energia-valor;
-	   var valorant =parseInt($scope.perro.salud);
+		$scope.jugador.energia -=(valor);
+		$scope.perro.comida-=(valor*0.6).toFixed(2);
+		/*por cada ves que vayamso al veterinario perdemos energia*/
+	  /* var valorant =parseInt($scope.perro.salud);
 	  $scope.perro.salud = (parseInt(valorant) + parseInt(valor));
-	  
-	  if($scope.perro.salud >100)
-	  $scope.perro.salud =100;
+	  */
+	  $scope.perro.salud+= valor;
+	  if($scope.perro.salud >100){
+		 // $scope.jugar(-(valor/2))
+		  $scope.perro.salud =100;
+		  }
 
-	  cansar(10);
-	  aburrir(valor/2);
 	  $scope.guardar();
 	}
  
