@@ -25,7 +25,7 @@
 	   'diversion':40,
 	   'comida':40	 
 	   };
-	  }
+	  };
 	  
 	
 	$scope.borrar=function(){
@@ -34,13 +34,13 @@
 		localStorage.removeItem("jugador");
 		cargar();
 	
-		}
+		};
  
   $scope.perro = cargar();
   var envejecer = function(dias){
 			$scope.perro.edad+=dias;
 			
-			}
+			};
 
 
 	  $scope.guardar= function(){
@@ -52,7 +52,7 @@
 		  $scope.perro.ultimo = time;
 		  var jsonjugador = JSON.stringify($scope.jugador);
 		  var json = JSON.stringify($scope.perro);
-		localStorage.setItem('jugador',jsonjugador)
+		localStorage.setItem('jugador',jsonjugador);
  		localStorage.setItem('perro',json);		
 		cargar();
 		if($scope.perro.diversion <0)
@@ -76,7 +76,7 @@
 		 if($scope.perro.comida>10)
 			$scope.alerta.comida=false;
 	   
-	  }
+	  };
 
 			  
 	  $scope.contar = function(tiempo,accion, valor){
@@ -101,9 +101,9 @@
 			$scope.$apply();
 			
 			}
-		}).start()
+		}).start();
 		
-		}
+		};
 		  
 		 
 	 
@@ -119,7 +119,7 @@
 		  $scope.perro.comida-=(valor/2);
 		  $scope.guardar();
 		 
-	  }
+	  };
 	  
 
 	   $scope.alimentar= function(comida){
@@ -138,7 +138,7 @@
 		  $scope.perro.diversion-=(comida*0.4).toFixed(2);
 	  // asumimos que al cmoer el perro se aburre
 	  $scope.guardar();
-	  }
+	  };
 	  
 	  
 	
@@ -156,7 +156,7 @@
 		  }
 
 	  $scope.guardar();
-	}
+	};
  
   
   
