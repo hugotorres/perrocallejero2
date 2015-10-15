@@ -10,7 +10,7 @@
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="mdpi"/>
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="hdpi"/>
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="xhdpi"/>
-<gap:plugin name="de.appplant.cordova.plugin.local-notification"  />
+
 <description>
 simulador de la vida de un perro adoptado de la calle.
 </description>
