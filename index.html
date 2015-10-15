@@ -182,6 +182,9 @@ button.camera-control:hover {
   </a> </div>
         
         <script>
+            function capturePhoto(){
+    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
+}
         	function uploadPhoto(data){
 // this is where you would send the image file to server
 
