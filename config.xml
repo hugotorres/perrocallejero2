@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "com.webuildsoft.perrocallejero"
+    id        = "co.perrocallejero.perrocallejero"
     version   = "1.2.0">
 
 <name>Perro callejero</name>
@@ -15,7 +15,7 @@
 simulador de la vida de un perro adoptado de la calle.
 </description>
 
-<author href="https://www.webuildsoft.com" email="info@webuildsoft.com">
+<author href="https://www.perrocallejero.co" email="info@perrocallejero.co">
 hugo andres torres
 </author>
 <preference name="permissions" value="none"/>
