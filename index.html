@@ -78,23 +78,13 @@ button.camera-control:hover {
           <div class="ui-grid-a">
         <div class="ui-block-a"> 
 					<div class="text-center">
-                        <div id="camera text-center">
-                            <button class="camera-control" onclick="capturePhoto();">
-                                Tomar foto
-                            </button>
-    
-       				 	</div>
+                        
             
-						<img   class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;"/> 
-                        <img id="cameraPic" src="" style="width:auto;height:30px;">
+						<img   class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;"/> 
+                     
 					</div>
 				
-              Energia
-              <progress value="{{jugador.energia}}" max="100" style=""> </progress>
-              {{jugador.energia}} <br>
-              Edad:
-              <progress value="{{perro.edad}}" max="1000"> </progress>
-              {{perro.edad}} dias
+             
               <div id="countdown"> </div>
             </div>
         <div class="ui-block-b">
@@ -108,7 +98,13 @@ button.camera-control:hover {
                   {{perro.diversion | number:1}}% <br>
                   Salud:
                   <progress value="{{perro.salud}}" max="100"> </progress>
-                  {{perro.salud | number:1}}% </p>
+                  {{perro.salud | number:1}}% <br>
+                   Energia
+              <progress value="{{jugador.energia}}" max="100" style=""> </progress>
+              {{jugador.energia}} <br>
+              Edad:
+              <progress value="{{perro.edad}}" max="1000"> </progress>
+              {{perro.edad}} dias</p>
           </div>
             </div>
       </div>
