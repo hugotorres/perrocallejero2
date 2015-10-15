@@ -32,11 +32,12 @@
 		alert('se borraran todos los datos y esto no se puede deshacer');
 		localStorage.removeItem("perro");
 		localStorage.removeItem("jugador");
+		cargar();
 	
 		}
  
   $scope.perro = cargar();
-  		var envejecer = function(dias){
+  var envejecer = function(dias){
 			$scope.perro.edad+=dias;
 			
 			}
