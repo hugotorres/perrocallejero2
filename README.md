@@ -1,4 +1,6 @@
 perrocallejero2
 ===============
 
-perrocallejero for android
+perrocallejero con phonegap
+
+con opcion de tomar foto
