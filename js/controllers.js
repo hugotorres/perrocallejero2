@@ -81,12 +81,12 @@
 			  
 	  $scope.contar = function(tiempo,accion, valor){
 		$scope.accion = accion;
-		
+		$scope.tiempo=tiempo;
 		$scope.valor= valor;
-		$("#countdown").fadeIn('slow');
+		$("#countdown").fadeIn();
 		  $("#countdown").countdown360({
-		radius      : 25,
-		seconds     : tiempo,
+		radius      : 15,
+		seconds     : $scope.tiempo,
 		fontColor   : '#FFFFFF',
 		autostart   : false,
 		onComplete  :function(){
@@ -97,9 +97,7 @@
 			$scope.jugar($scope.valor);
 			if($scope.accion=='salud')
 			$scope.salud($scope.valor);
-			
 			$scope.$apply();
-			
 			}
 		}).start();
 		
