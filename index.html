@@ -76,7 +76,8 @@ button.camera-control:hover {
       <div class="ui-corner-none" data-content-theme="a">
     <div class="ui-bar ui-bar-b">
           <h3 contenteditable="true" align="center" ng-model="perro.nombre">
-        <div style="float:right;"> Harry </div>
+        <div style="float:right;"> Harry  
+            <span style="border-left:thin solid white;padding-left:10px;"> Nivel: {{jugador.nivel}}</span></div>
       </h3>
         </div>
     <div class="ui-body ui-body-d">
@@ -104,12 +105,10 @@ button.camera-control:hover {
                   Salud:
                   <progress value="{{perro.salud}}" max="100"> </progress>
                   {{perro.salud | number:1}}% <br>
-                   Energia
-              <progress value="{{jugador.energia}}" max="100" style=""> </progress>
-              {{jugador.energia}} <br>
+                   
               Edad:
               <progress value="{{perro.edad}}" max="1000"> </progress>
-              {{perro.edad}} dias</p>
+              {{perro.edad | number:1}} dias</p>
           </div>
             </div>
       </div>
@@ -155,7 +154,7 @@ button.camera-control:hover {
             <button type="submit" data-theme="c" ng-click="contar(10,'salud',6)"> antibiotico </button>
           </div>
               <div class="ui-block-b">
-            <button type="submit" data-theme="c" ng-click="contar(15,'salud',20)"> veterinario </button>
+            <button type="submit" data-theme="d" ng-click="contar(15,'salud',20)"> veterinario </button>
           </div>
             </div>
         <!-- /grid-a --> 

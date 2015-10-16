@@ -75,11 +75,12 @@
 			$scope.alerta.salud=false;
 		 if($scope.perro.comida>10)
 			$scope.alerta.comida=false;
-	   
+          $scope.$apply();
 	  };
 
 			  
 	  $scope.contar = function(tiempo,accion, valor){
+          envejecer(valor/3);
 		$scope.accion = accion;
 		$scope.tiempo=tiempo;
 		$scope.valor= valor;
