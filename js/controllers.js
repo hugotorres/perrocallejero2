@@ -88,7 +88,7 @@
 		$scope.valor= valor;
 		$("#countdown").fadeIn();
 		  $("#countdown").countdown360({
-		radius      : 15,
+		radius      : 12,
 		seconds     : $scope.tiempo,
 		fontColor   : '#FFFFFF',
 		autostart   : false,
