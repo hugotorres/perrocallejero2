@@ -1,6 +1,7 @@
   var callejeroApp = angular.module('callejeroApp', []);
   
   callejeroApp.controller('controles', function ($scope) {
+      $scope.procesando= false;
 	  
 	  $scope.alerta={};
 	  $scope.alerta.comida=0;
@@ -80,6 +81,7 @@
 
 			  
 	  $scope.contar = function(tiempo,accion, valor){
+          $scope.procesando=true;
           envejecer(valor/3);
 		$scope.accion = accion;
 		$scope.tiempo=tiempo;
@@ -92,6 +94,7 @@
 		autostart   : false,
 		onComplete  :function(){
 			$("#countdown").fadeOut();
+            $scope.procesando=false;
 			if($scope.accion=='comida')
 			$scope.alimentar($scope.valor);
 			if($scope.accion=='jugar')
