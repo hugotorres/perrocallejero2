@@ -21,7 +21,7 @@
     </script>
         <style>
             div#countdown {
-                margin-top: -23px;
+                margin-top: -2s de css3px;
             }
         button.camera-control {
   background-color: #f3f3f3;
@@ -55,6 +55,28 @@ button.camera-control:hover {
     box-shadow: inset 0 0 30px 0 #999999, 0 1px 0 0 white; 
 }
         </style>
+        
+        
+        
+         <script type="text/javascript">
+      window.mopub = [{
+        ad_unit: "6daaa73bdb6c4b7e814b350ac59e07ef", //Populate your ad unit ID here
+        ad_container_id: "ad_container", //Specify the div or container to which you’d like to the mobile web tag
+        ad_width: 320, //required (320 for banners)
+        ad_height: 50, // required (50 for banners)
+        keywords: "", // Optionally pass keywords as a comma separated list
+      } ]; //To load additional ad units, add another object into the array. 
+
+      (function() {
+        var mopubjs = document.createElement("script");
+        mopubjs.async = true;
+        mopubjs.type = "text/javascript";
+        mopubjs.src = "//d1zg4cyg8u4pko.cloudfront.net/mweb/mobileweb.min.js"
+        var node = document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(mopubjs, node);
+      })();
+  </script>
+        
     </head>
     <script>
     function onDeviceReady() {
@@ -158,7 +180,10 @@ button.camera-control:hover {
           </div>
             </div>
         <!-- /grid-a --> 
-      </div>
+      </div><div id="ad_container">
+        X
+        </div>
+        </div>
         </div>
   </div>
     </div>
