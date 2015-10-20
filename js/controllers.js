@@ -2,7 +2,6 @@
   
   callejeroApp.controller('controles', function ($scope) {
       $scope.procesando= false;
-	  
 	  $scope.alerta={};
 	  $scope.alerta.comida=0;
 	  $scope.alerta.diversion=0;
