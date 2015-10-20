@@ -34,7 +34,7 @@
 		localStorage.removeItem("perro");
 		localStorage.removeItem("jugador");
 		cargar();
-	
+	    document.location = "index.html";
 		};
  
   $scope.perro = cargar();
