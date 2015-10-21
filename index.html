@@ -16,6 +16,10 @@
     <script src="js/angular.min.js" type="text/javascript"></script>
     <script src="js/controllers.js"> </script>
         <style>
+            button.ui-btn-hidden {
+                border-radius: 50% !important;
+                background: black;
+            }
             div#countdown {
             	position:absolute;
                 top:40px;
@@ -75,7 +79,7 @@
         <div class="ui-block-a"> 
 					<div class="text-center center-block" onclick="adbuddiz.showAd();">
                         <img   src="images/gif-perro-comiendo.gif" ng-if="accion=='comida' && procesando"  style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" >
-						<img  ng-if="accion!= 'comida'" class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" /> 
+						<img  ng-if="accion!='comida'" class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" /> 
                      <div id="countdown" > </div>
 					</div>
             </div>
@@ -169,7 +173,7 @@ Sopa (6)</button>
 </div>
       <div data-role="collapsible">
     <h3> Acerca </h3>
-    <p> la intencion de este juego es concientizar a las personas sobre los cuidados qeu requeire tener un perro. y para incentivar l aadopcion en vez de la compra de mascotas. </p>
+    <p> la intencion de este juego es concientizar a las personas sobre los cuidados qeu requeire tener un perro. y para incentivar la adopcion en vez de la compra de mascotas. </p>
     <p>&nbsp; </p>
     <p> perrocallejero.co </p>
   </div>
