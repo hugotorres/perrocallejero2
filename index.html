@@ -65,21 +65,21 @@
     <div style="width:50px;float:left;"> <a href="#config" data-transition="slidedown">
       <button data-icon="gear">! </button>
       </a> </div>
-    <h4> Perro callejero </h4>
+    <h4> Perro callejero {{perro.edad}} diás </h4>
   </div>
       <div class="ui-corner-none" data-content-theme="a">
     <div class="ui-bar ui-bar-b">
           <h3 contenteditable="true" align="center" ng-model="perro.nombre">
-        <div style="float:right;"> Harry  
-            <span style="border-left:thin solid white;padding-left:10px;"> Nivel: {{jugador.nivel}}</span><span style="border-left:thin solid white;padding-left:10px;">Energia: {{jugador.energia}}</span></div>
+        <div style="float:right;"> Harry
+            <span style="border-left:thin solid white;padding-left:10px; padidng-right:10px;"> Nivel: {{jugador.nivel}}</span><span style="border-left:thin solid white;padding-left:10px;">Energia: {{jugador.energia}}</span></div>
       </h3>
         </div> 
     <div class="ui-body ui-body-d">
           <div class="ui-grid-a">
         <div class="ui-block-a"> 
-					<div class="text-center center-block" onclick="adbuddiz.showAd();">
+					<div class="text-center center-block" onclick="adbuddiz.showAd();" style="background:#AAD99A;padding:0px;">
                         <img   src="images/gif-perro-comiendo.gif" ng-if="accion=='comida' && procesando"  style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" >
-						<img  ng-if="accion!='comida'" class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" /> 
+						<img  ng-if="!procesando" class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" /> 
                      <div id="countdown" > </div>
 					</div>
             </div>
@@ -111,13 +111,13 @@
         </div>
   </div>
       <div style="clear:left;"> </div>
-      <div data-role="content" style="font-size:12px;">
+      <div data-role="content" style="font-size:12px;padding:1px;">
     <div data-role="collapsible-set">
       <div data-role="collapsible">
         <h3> Comida </h3>
 				<div class="ui-grid-b">
 						<div class="ui-block-a">
-							<button  data-theme="c" ng-click="contar(5,'comida',5)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}"> Concentrado (5)</button>
+							<button data-mini  data-theme="c" ng-click="contar(5,'comida',5)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}"> Concentrado (5)</button>
 						</div>
 						<div class="ui-block-b">
 							<button  data-theme="c" ng-click="contar(3,'comida',6)" ng-disabled="procesando"> 
