@@ -45,6 +45,12 @@
     </head>
     <script>
     function onDeviceReady() {
+        
+        
+
+      adbuddiz.setAndroidPublisherKey("2f6dc451-332f-45d3-9064-d8333f740da5");
+      adbuddiz.cacheAds();
+
       document.addEventListener("backbutton", onBackKeyDown, false);
     }
     function onBackKeyDown() 
@@ -56,9 +62,9 @@
 <div data-role="page" id="inicio" data-theme="b">
       <div data-role="header" data-position="fixed">
     <div style="width:50px;float:left;"> <a href="#config" data-transition="slidedown">
-      <button data-icon="gear">! </button>
+      <button data-icon="gear" onclick="adbuddiz.showAd();">! </button>
       </a> </div>
-    <h4> Perro callejero </h4>
+    <h4> Perro callejero </h4>con publicidad de adbuddiz
   </div>
       <div class="ui-corner-none" data-content-theme="a">
     <div class="ui-bar ui-bar-b">
@@ -71,8 +77,8 @@
           <div class="ui-grid-a">
         <div class="ui-block-a"> 
 					<div class="text-center center-block">
-                        <img src="'http://gifs.chiquipedia.com/images/gifs-perros-2.gif'" ng-if="accion=='comida' && procesando"  style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" >
-						<img  ng-if="!procesando" class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" /> 
+                        <img src="images/gif-perro-comiendo.gif" ng-if="accion=='comida' && procesando"  style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" >
+						<img  ng-if="accion!= 'comida'" class="imageninicio" src="images/perro1.jpg"   style="padding:2px;max-width:100px;border-radius: 50%;margin-left:30px;" /> 
                      <div id="countdown" > </div>
 					</div>
             </div>

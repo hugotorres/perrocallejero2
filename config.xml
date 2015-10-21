@@ -12,7 +12,7 @@
 <gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="xhdpi"/>
 
 <description>
-simulador de la vida de un perro adoptado de la calle.
+Simulador de la vida de un perro adoptado de la calle.
 </description>
 <feature name="Media">
     <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
@@ -24,5 +24,7 @@ simulador de la vida de un perro adoptado de la calle.
 hugo andres torres
 </author>
 <preference name="permissions" value="none"/>
-
+      <gap:plugin name="com.purplebrain.adbuddiz.sdk" source="npm" />
 </widget>
+
+
