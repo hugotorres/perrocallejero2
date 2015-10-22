@@ -6,10 +6,10 @@
 
 <name>Perro callejero</name>
 <icon src="images/darmano.jpg"/>
-<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="ldpi"/>
-<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="mdpi"/>
-<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="hdpi"/>
-<gap:splash src="images/darmano.jpg" gap:platform="android" gap:density="xhdpi"/>
+<gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="mdpi"/>
+<gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="hdpi"/>
+<gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="xhdpi"/>
 <gap:plugin name="com.purplebrain.adbuddiz.sdk" source="npm" />
 <description>
 Simulador de la vida de un perro adoptado de la calle.
