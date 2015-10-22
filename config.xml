@@ -5,7 +5,7 @@
     version   = "1.2.0">
 
 <name>Perro callejero</name>
-<icon src="images/darmano.jpg"/>
+<icon src="images/matea1.jpg"/>
 <gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="ldpi"/>
 <gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="mdpi"/>
 <gap:splash src="images/matea1.jpg" gap:platform="android" gap:density="hdpi"/>
