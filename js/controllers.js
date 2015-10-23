@@ -139,7 +139,7 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
 
 	   $scope.alimentar= function(comida){
 
-	  $scope.jugador.energia -=(comida);
+	  
 
 	  /* var comidaant =parseInt($scope.perro.comida);
 	  $scope.perro.comida = (parseInt(comidaant) + parseInt(comida));
@@ -158,7 +158,7 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
 	  
 	
 	$scope.salud= function(valor){
-		$scope.jugador.energia -=(valor);
+		
 		$scope.perro.comida-=(valor*0.6).toFixed(2);
 		/*por cada ves que vayamso al veterinario perdemos energia*/
 	  /* var valorant =parseInt($scope.perro.salud);
