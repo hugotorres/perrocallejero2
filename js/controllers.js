@@ -1,6 +1,10 @@
   var callejeroApp = angular.module('callejeroApp', []);
   
   callejeroApp.controller('controles', function ($scope) {
+       Parse.$ = jQuery;
+      $scope.nota ={};
+      // Replace this line with the one on your Quickstart Guide Page
+      Parse.initialize("gywzj6fL4aGQ24A0GLU1B5RbmnJsB6TdS7VXO9j9", "P0vu2Z7wrYJkXzyaNYj7rgF3mZ4MxPp7hcF7lzTr");
       $scope.procesando= false;
 	  $scope.alerta={};
 	  $scope.alerta.comida=0;
@@ -14,19 +18,27 @@
       $scope.fecha= new Date().getTime();
 	  
    var cargar = function(){
-  var fechaHoy= new Date().getTime();
-	 if(localStorage.getItem('perro'))
-	  return JSON.parse(localStorage.getItem('perro'));
-	  else
-	    return {
-	   'name': 'Harry',
-	   'edad': 1 ,
-	   'salud':40,
-	   'amor':40,
-	   'diversion':40,
-	   'comida':40,
-        'fechaInicio':fechaHoy
-	   };
+      var fechaHoy= new Date().getTime();
+	     if(localStorage.getItem('perro')){
+             $scope.activo=true;
+             return JSON.parse(localStorage.getItem('perro'));
+             
+         }
+	      
+	      else
+              {
+                  $scope.activo=false;
+                  	    return {
+                            'nombre':'harry',
+                           'edad': 1 ,
+                           'salud':40,
+                           'amor':40,
+                           'diversion':40,
+                           'comida':40,
+                           'fechaInicio':fechaHoy
+                           };
+              }
+
 	  };
       
       
@@ -173,6 +185,68 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
 	  $scope.guardar();
 	};
  
-  
-  
+    
+      /*
+       var Dog = Parse.Object.extend("perro");
+      
+      var Perros = Parse.Collection.extend({
+            model: Dog
+        });
+      
+      var perros = new Perros();
+      
+      perros.fetch({
+            success: function(perros) {
+                $scope.perros = perros.models;
+                console.log(perros.models);
+            },
+            error: function(blogs, error) {
+                console.log(error);
+            }
+        });
+      */
+      $scope.verLista = function(){
+           var Nota = Parse.Object.extend("Nota");
+
+           var Notas = Parse.Collection.extend({
+                model: Nota
+            });
+           var notas = new Notas();
+
+          notas.fetch({
+                success: function(notas) {
+                    $scope.notas = notas.models;
+                    console.log($scope.notas);
+                },
+                error: function(notas, error) {
+                    console.log(error);
+                }
+            });
+          
+      };
+      
+      $scope.verLista();
+
+      $scope.activar = function(){
+          $scope.activo = true;
+      };
+      
+      $scope.guardarNota= function(){
+          if($scope.nota.contenido !== null){
+               console.log('guardando notas en parse');
+            var Nota = Parse.Object.extend("Nota");
+            var nota = new Nota();
+            nota.save($scope.nota).then(function(object) {
+               $scope.nota.contenido= null;
+                console.log(object);
+              console.log("yay! it saved");
+                $scope.verLista();
+            });
+              console.log($scope.nota);
+              
+          }
+           
+          
+      };
+      
 });
