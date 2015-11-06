@@ -22,9 +22,7 @@
 	     if(localStorage.getItem('perro')){
              $scope.activo=true;
              return JSON.parse(localStorage.getItem('perro'));
-             
          }
-	      
 	      else
               {
                   $scope.activo=false;
@@ -38,21 +36,18 @@
                            'fechaInicio':fechaHoy
                            };
               }
-
 	  };
       
-      
       var  secondsToString= function (seconds)
-{
-var numdays = Math.floor(seconds / 864000);
-var numhours = Math.floor((seconds % 864000) / 3600);
-var numminutes = Math.floor(((seconds % 864000) % 3600) / 60);
-var numseconds = ((seconds % 864000) % 3600) % 60;
-    $scope.numdays= numdays;
-return numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
-};
+                {
+                var numdays = Math.floor(seconds / 864000);
+                var numhours = Math.floor((seconds % 864000) / 3600);
+                var numminutes = Math.floor(((seconds % 864000) % 3600) / 60);
+                var numseconds = ((seconds % 864000) % 3600) % 60;
+                    $scope.numdays= numdays;
+                return numdays + " days " + numhours + " hours " + numminutes + " minutes " + numseconds + " seconds";
+                };
 	  
-	
 	$scope.borrar=function(){
 		alert('se borraran todos los datos y esto no se puede deshacer');
 		localStorage.removeItem("perro");
@@ -138,26 +133,20 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
       $scope.jugar= function(valor){
 		  $scope.jugador.energia -=(valor);
 		  $scope.perro.diversion+=valor;
-		  
 		  if($scope.perro.diversion >100)
 		  $scope.perro.diversion =100;
-		  
 		  $scope.perro.salud-=(valor/2);
 		  $scope.perro.comida-=(valor/2);
 		  $scope.guardar();
-		 
 	  };
 	  
 
 	   $scope.alimentar= function(comida){
 
-	  
-
 	  /* var comidaant =parseInt($scope.perro.comida);
 	  $scope.perro.comida = (parseInt(comidaant) + parseInt(comida));
 	  */
 	  $scope.perro.comida+=comida;
-	  
 	  if($scope.perro.comida >100){
 		  $scope.perro.comida =100;
 		  $scope.perro.salud-=(comida*0.4).toFixed(2);
@@ -170,7 +159,6 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
 	  
 	
 	$scope.salud= function(valor){
-		
 		$scope.perro.comida-=(valor*0.6).toFixed(2);
 		/*por cada ves que vayamso al veterinario perdemos energia*/
 	  /* var valorant =parseInt($scope.perro.salud);
@@ -181,20 +169,14 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
 		 // $scope.jugar(-(valor/2))
 		  $scope.perro.salud =100;
 		  }
-
 	  $scope.guardar();
 	};
- 
-    
       /*
        var Dog = Parse.Object.extend("perro");
-      
       var Perros = Parse.Collection.extend({
             model: Dog
         });
-      
       var perros = new Perros();
-      
       perros.fetch({
             success: function(perros) {
                 $scope.perros = perros.models;
@@ -207,12 +189,10 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
       */
       $scope.verLista = function(){
            var Nota = Parse.Object.extend("Nota");
-
            var Notas = Parse.Collection.extend({
                 model: Nota
             });
            var notas = new Notas();
-
           notas.fetch({
                 success: function(notas) {
                     $scope.notas = notas.models;
@@ -222,15 +202,12 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
                     console.log(error);
                 }
             });
-          
       };
       
-      $scope.verLista();
-
+     // $scope.verLista();
       $scope.activar = function(){
           $scope.activo = true;
       };
-      
       $scope.guardarNota= function(){
           if($scope.nota.contenido !== null){
                console.log('guardando notas en parse');
@@ -243,10 +220,6 @@ return numdays + " days " + numhours + " hours " + numminutes + " minutes " + nu
                 $scope.verLista();
             });
               console.log($scope.nota);
-              
           }
-           
-          
       };
-      
 });

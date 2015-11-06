@@ -17,14 +17,13 @@ Simulador de la vida de un perro adoptado de la calle.
 <feature name="Media">
     <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
 </feature>
-    <platform name="android">
-        <preference name="Fullscreen" value="true" />
-    </platform>
-<author href="https://www.perrocallejero.co" email="info@perrocallejero.co">
-hugo andres torres
-</author>
+<platform name="android">
+    <preference name="Fullscreen" value="true" />
+</platform>
+    <author href="https://www.perrocallejero.co" email="info@perrocallejero.co">
+    Hugo Andres Torres
+    </author>
 <preference name="permissions" value="none"/>
-     
 </widget>
 
 
