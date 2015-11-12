@@ -5,6 +5,8 @@
     <head>
     <meta charset="utf-8">
     <title>Perro callejero</title>
+        <meta name="description" content="Esta es la calculadora de viajes.  cuando termines sabrás: Cuánto ahorrar cada mes para tu viaje. Cuál es la fecha ideal para tu viaje.">
+        <meta name="keywords" content="calculadora, colombia,claculadora de viajes,viajero sin excusas">
     <link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
     <link href="jquery-mobile/jqueryflattheme.css" rel="stylesheet" type="text/css"/>
     <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
@@ -134,46 +136,41 @@
   </div>
       <div style="clear:left;"> </div>
       <div data-role="content" style="font-size:12px;padding:1px;">
-    <div data-role="collapsible-set">
-      <div data-role="collapsible">
+    <div data-role="collapsible-set" data-iconpos="right" data-mini="true" >
+      <div data-role="collapsible" data-mini="true" data-iconpos="right">
         <h3> Comida </h3>
-				<div class="ui-grid-b">
-						<div class="ui-block-a">
-							<button   data-theme="c" ng-click="contar(5,'comida',5)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}" > Concentrado (5)</button>
-						</div>
-						<div class="ui-block-b">
-							<button  data-theme="c" ng-click="contar(3,'comida',6)" ng-disabled="procesando"> 
-Sopa (6)</button>
-						</div>
-                    	<div class="ui-block-c">
-							<button  data-theme="c" ng-click="contar(4,'comida',4)" ng-disabled="procesando">
- Sobras (4)</button>
-						</div>
+				<div  data-role="controlgroup" data-type="horizontal" data-mini="true">
+						
+							<a  data-shadow="false" data-role="button" data-mini="true" data-theme="c" ng-click="contar(5,'comida',5)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}" > Concentrado (5)</a>
+						
+							<a data-shadow="false" data-role="button" data-mini="true"  data-theme="c" ng-click="contar(3,'comida',6)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}"> 
+Sopa (6)</a>
+						
+							<a data-shadow="false" data-role="button" data-mini="true" data-theme="c" ng-click="contar(4,'comida',4)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}">
+ Sobras (4)</a>
+					
 				</div>
       </div>
-          <div data-role="collapsible" data-collapsed="true">
+          <div data-role="collapsible" data-collapsed="true" data-mini="true" data-iconpos="right">
         <h3> Diversion </h3>
-						<div class="ui-grid-b">
-							<div class="ui-block-a">
-								<button type="submit" data-theme="c" ng-click="contar(8,'jugar',5)"  ng-disabled="procesando"> Correr(5) </button>
-							</div>
-							<div class="ui-block-b">
-									<button type="submit" data-theme="c" ng-click="contar(3,'jugar',7)" ng-disabled="procesando"> Pelota (7)</button>
-							</div>
-                            <div class="ui-block-c">
-                            	<button type="submit" data-theme="c" ng-click="contar(4,'jugar',10)" ng-disabled="procesando" > Bicicleta (10)</button>
-							</div>
+						<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+						
+								<a data-role="button" data-mini="true" type="submit" data-theme="c" ng-click="contar(8,'jugar',5)"  ng-disabled="procesando"> Correr(5) </a>
+							
+									<a data-role="button" data-mini="true" type="submit" data-theme="c" ng-click="contar(3,'jugar',7)" ng-disabled="procesando"> Pelota (7)</a>
+							
+                            	<a data-role="button" data-mini="true" type="submit" data-theme="c" ng-click="contar(4,'jugar',10)" ng-disabled="procesando" > Bicicleta (10)</a>
+							
 						</div>
       </div>
-          <div data-role="collapsible" data-collapsed="true">
+          <div data-role="collapsible" data-collapsed="true" data-mini="true" data-iconpos="right">
         <h3> Salud </h3>
-        <div class="ui-grid-a">
-           <div class="ui-block-a">
-            <button type="submit" data-theme="c" ng-click="contar(10,'salud',6)" ng-disabled="procesando"> antibiotico(6) </button>
-          </div>
-              <div class="ui-block-b">
-            <button type="submit" data-theme="c" ng-click="contar(15,'salud',20)" ng-disabled="procesando"> veterinario(20) </button>
-          </div>
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+         
+            <a data-role="button" type="submit" data-theme="c" ng-click="contar(10,'salud',6)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}"> antibiotico(6) </a>
+    
+            <a data-role="button" type="submit" data-theme="c" ng-click="contar(15,'salud',20)" ng-disabled="procesando" ng-class="{'ui-btn-a':procesando}"> veterinario(20) </a>
+     
             </div>
         <!-- /grid-a --> 
       </div>
