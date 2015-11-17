@@ -1,10 +1,10 @@
   var callejeroApp = angular.module('callejeroApp', []);
   
   callejeroApp.controller('controles', function ($scope) {
-       Parse.$ = jQuery;
+     //  Parse.$ = jQuery;
       $scope.nota ={};
       // Replace this line with the one on your Quickstart Guide Page
-      Parse.initialize("gywzj6fL4aGQ24A0GLU1B5RbmnJsB6TdS7VXO9j9", "P0vu2Z7wrYJkXzyaNYj7rgF3mZ4MxPp7hcF7lzTr");
+   //   Parse.initialize("gywzj6fL4aGQ24A0GLU1B5RbmnJsB6TdS7VXO9j9", "P0vu2Z7wrYJkXzyaNYj7rgF3mZ4MxPp7hcF7lzTr");
       $scope.procesando= false;
 	  $scope.alerta={};
 	  $scope.alerta.comida=0;
@@ -187,6 +187,7 @@
             }
         });
       */
+      /*
       $scope.verLista = function(){
            var Nota = Parse.Object.extend("Nota");
            var Notas = Parse.Collection.extend({
@@ -203,11 +204,14 @@
                 }
             });
       };
+      */
       
      // $scope.verLista();
       $scope.activar = function(){
           $scope.activo = true;
       };
+      
+      /*
       $scope.guardarNota= function(){
           if($scope.nota.contenido !== null){
                console.log('guardando notas en parse');
@@ -222,4 +226,5 @@
               console.log($scope.nota);
           }
       };
+      */
 });
