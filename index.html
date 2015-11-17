@@ -18,7 +18,8 @@
     <script src="js/jquery.countdown360.min.js" type="text/javascript"></script>
     <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
     <script src="js/angular.min.js" type="text/javascript"></script>
-        
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <link rel="stylesheet" href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" />
     <script src="js/controllers.js"> </script>
         <style>
             button.ui-btn-hidden {
@@ -62,6 +63,27 @@
 
 
     </head>
+    
+    <script>
+    	function GoogleMap(){
+ 
+                    this.initialize = function(){
+                    var map = showMap();
+                    }
+
+                     var showMap = function(){
+                    var mapOptions = {
+                    zoom: 4,
+                    center: new google.maps.LatLng(-33, 151),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                    }
+
+                    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+                    return map;
+                    }
+                    }
+    </script>
     <script>
 
     function onDeviceReady() {
@@ -74,33 +96,11 @@
 
           // Initialize the map plugin
 
-        const GORYOKAKU_JAPAN = new plugin.google.maps.LatLng(41.796875,140.757007);
-
-var map = plugin.google.maps.Map.getMap({
-  'backgroundColor': 'white',
-  'mapType': plugin.google.maps.MapTypeId.HYBRID,
-  'controls': {
-    'compass': true,
-    'myLocationButton': true,
-    'indoorPicker': true,
-    'zoom': true
-  },
-  'gestures': {
-    'scroll': true,
-    'tilt': true,
-    'rotate': true,
-    'zoom': true
-  },
-  'camera': {
-    'latLng': GORYOKAKU_JAPAN,
-    'tilt': 30,
-    'zoom': 15,
-    'bearing': 50
-  }
-});
+    var map = new GoogleMap();
+    map.initialize();
 
           // You have to wait the MAP_READY event.
-          map.on(plugin.google.maps.event.MAP_READY, onMapInit);
+         // map.on(plugin.google.maps.event.MAP_READY, onMapInit);
         
     }
     function onMapInit(map) {
@@ -244,7 +244,7 @@ Sopa (6)</a>
         <h3> Perritos disponibles </h3>
           
           
-          <div id="map_canvas" style="border:thin solid black;height:400px;">
+          <div id="map_canvas" >
               
           </div>
 
