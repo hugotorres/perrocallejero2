@@ -3,4 +3,4 @@ perrocallejero2
 
 perrocallejero con phonegap
 
-con opcion de tomar foto
+con mapa de perros disponibles para adopcion

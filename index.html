@@ -63,11 +63,49 @@
 
     </head>
     <script>
+
     function onDeviceReady() {
       adbuddiz.setAndroidPublisherKey("2f6dc451-332f-45d3-9064-d8333f740da5");
       adbuddiz.cacheAds();
       document.addEventListener("backbutton", onBackKeyDown, false);
+        
+        
+        var mapDiv = document.getElementById("map_canvas");
+
+          // Initialize the map plugin
+
+        const GORYOKAKU_JAPAN = new plugin.google.maps.LatLng(41.796875,140.757007);
+
+var map = plugin.google.maps.Map.getMap({
+  'backgroundColor': 'white',
+  'mapType': plugin.google.maps.MapTypeId.HYBRID,
+  'controls': {
+    'compass': true,
+    'myLocationButton': true,
+    'indoorPicker': true,
+    'zoom': true
+  },
+  'gestures': {
+    'scroll': true,
+    'tilt': true,
+    'rotate': true,
+    'zoom': true
+  },
+  'camera': {
+    'latLng': GORYOKAKU_JAPAN,
+    'tilt': 30,
+    'zoom': 15,
+    'bearing': 50
+  }
+});
+
+          // You have to wait the MAP_READY event.
+          map.on(plugin.google.maps.event.MAP_READY, onMapInit);
+        
     }
+    function onMapInit(map) {
+        console.log(map);
+	}
     function onBackKeyDown() 
     {
       navigator.app.exitApp();
@@ -200,12 +238,21 @@ Sopa (6)</a>
         
 <div data-role="page" data-theme="b" data-add-back-btn="true" id="notas">
       <div data-role="header">
-        <h1> Notas </h1>
+        <h1> Mapa </h1>
       </div>
       <div data-role="collapsible">
-        <h3> Nueva nota </h3>
-          <textarea  ng-model="nota.contenido" id="nuevanota"></textarea>
-        <button ng-click="guardarNota()"> Guardar </button>
+        <h3> Perritos disponibles </h3>
+          
+          
+          <div id="map_canvas" style="border:thin solid black;height:400px;">
+              
+          </div>
+
+          
+          
+          
+          
+          
       
 	 </div>
     <!--
